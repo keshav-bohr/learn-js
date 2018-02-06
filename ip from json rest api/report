@@ -1,0 +1,48 @@
+Json Request And Response In Node Js Via Restful Api
+
+- There is an online API called www.jsontest.com 
+
+- There, the request can be made for various services like IP address, Date and Time, validation and also customise the api for our own use.
+
+- The program has been made in Node JS to request for the services available on api.
+
+- The program receives the response in the JSON format of the services we have applied for.
+
+- The program uses GET method to request the server for the services.
+
+- The program receives the JSON data and parse it to string to be able to get output with the function called JSON.parse()
+
+
+
+
+Places i need improvement:-
+
+- Understand more syntax of Node JS
+
+- To be able to implement this feature using other technology like javascript or angular
+
+
+SOURCE CODE
+
+const https = require('http');
+
+https.get('http://date.jsontest.com/', (resp) => {
+  let data = '';
+
+  // A chunk of data has been recieved.
+  resp.on('data', (chunk) => {
+    data += chunk;
+  });
+
+  // The whole response has been received. Print out the result.
+  resp.on('end', () => {
+    console.log(JSON.parse(data));
+  });
+
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});
+
+
+//resp gets active when there is a successful connection for the request and on('data' stores the data if there is any data available for the response
+
