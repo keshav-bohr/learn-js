@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title list
+    style
+        include main.css
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+
+  body
+    .inputText
+      textarea#listContent(rows="4" cols="50" placeholder="write a list")
+      button(type="button" onclick="listingText();") create a list
+    p#listText
+    script
+        include functions.js
