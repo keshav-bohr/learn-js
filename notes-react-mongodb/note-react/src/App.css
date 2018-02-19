@@ -1,0 +1,77 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+body{
+  background-color: khaki;
+  color: gray;
+  font-size: large;
+}
+
+
+input[type]{
+  font-size: medium;
+  background-color: linen
+}
+
+button:disabled,
+button[disabled]{
+  visibility: hidden;
+}
+
+.login,
+.register{
+  position:absolute;
+  top:20%;
+  right:40%;
+}
+
+
+.create-note{
+  position:absolute;
+  top:19%;
+  left:40%;
+}
+
+.logout{
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+button{
+  background-color: lightskyblue;
+  font-size: large;
+  border-style: groove
+}
+
+input{
+  width: 380px;
+  border-style: solid
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
