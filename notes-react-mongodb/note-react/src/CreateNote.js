@@ -32,7 +32,7 @@ class CreateNote extends Component{
             this.props.getNotes();
         })
         .catch(error => {
-            alert('Note with this title already exists')
+            alert('some error occurred while creating a note')
         })
     }
 

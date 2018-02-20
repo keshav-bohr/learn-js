@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import DeleteNote from './DeleteNote'
 import CreateNote from './CreateNote'
+import UpdateNote from './UpdateNote'
 
 class Note extends Component{
     constructor(props){
@@ -9,7 +10,10 @@ class Note extends Component{
         this.state = {
             notes : [],
             deleteTitle : "",
-            createNote : true
+            updateTitle: "",
+            updateBody : "",
+            createNote : true,
+            updateNote: false
         }
         this.deleteNote = this.deleteNote.bind(this)
         this.retreiveNotesFromDb = this.retreiveNotesFromDb.bind(this)
@@ -25,7 +29,10 @@ class Note extends Component{
             .then(notes => {
                 this.setState({
                     notes : notes.data,
-                    deleteTitle : ""
+                    deleteTitle : "",
+                    updateTitle : "",
+                    createNote : true,
+                    updateNote: false
                 })
             })
             .catch(error => {
@@ -46,21 +53,33 @@ class Note extends Component{
     }
    
 
+    updateClickedNote(title,body){
+        this.setState({
+            createNote : false,
+            updateNote: true,
+            updateTitle : title,
+            updateBody : body
+        })
+    }
+
     render(){
         return(
             <div> 
                 <div>
                 {
                     this.state.notes.map((element, index) => {
-                        return (<div className = "list-note" key = {index}>
-                                    <h1> Title : {element.title} </h1> 
-                                    <h2> Body : {element.body} </h2> 
+                        return (<div>
+                                    <div onClick = {this.updateClickedNote.bind(this, element.title, element.body)} className = "list-note" key = {index}>
+                                        <h1> Title : {element.title} </h1> 
+                                        <h2> Body : {element.body} </h2>
+                                    </div> 
                                     <button type = "button" key = {index} onClick = {this.deleteNote.bind(this, element.title)}> Delete </button>
                                 </div>)
                     })
                 }
                 </div>
                 {this.state.deleteTitle ? <DeleteNote getNotes = {this.retreiveNotesFromDb} title = {this.state.deleteTitle} loggedIn = {this.state.loggedIn}/> : null}
+                {this.state.updateNote ? <UpdateNote getNotes = {this.retreiveNotesFromDb} title = {this.state.updateTitle} body = {this.state.updateBody}/> : null}
                 {this.state.createNote ? <CreateNote getNotes = {this.retreiveNotesFromDb}/> : null}
             </div>
         )

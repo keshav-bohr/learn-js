@@ -63,7 +63,11 @@ userSchema.methods.verifyPassword = function(userSubmittedPassword){
 // verifying the token present in the cookie
 userSchema.statics.verifyToken = function(token){
     var decoded = jwt.verify(token, 'thatIsClassic');
-    return this.findById(decoded.id);
+    var user = this;
+    return user.findOne({
+        "_id": decoded.id,
+        "tokens" : token
+    });
 }
 
 

@@ -73,7 +73,7 @@ function deleteNoteHandler(req, res, next){
 
 
 
-// Hnadler for updating note
+// Handler for updating note
 function updateNoteHandler(req, res, next){
     note.findOneAndUpdate({
         title: req.body.title,
