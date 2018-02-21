@@ -15,8 +15,8 @@ function loginHandler(req, res, next) {
             return user.saveToken();
         })
         .then(user => {
-            res.clearCookie('token');
-            res.cookie('token', user.tokens[user.tokens.length - 1], {encode : String})
+            // res.clearCookie('token');
+            res.cookie('token', user.tokens[user.tokens.length - 1])
             res.json({
                 success: true
             })

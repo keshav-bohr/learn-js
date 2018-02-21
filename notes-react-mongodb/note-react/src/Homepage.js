@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Register from './Register'
 import Login from './Login'
+import Logout from './Logout'
 
 class Homepage extends Component{
     constructor(props){
@@ -8,7 +9,8 @@ class Homepage extends Component{
         this.state = {
             register: false,
             login: false,
-            loggedIn: false
+            loggedIn: false,
+            logout : false
         }
         this.setRegister = this.setRegister.bind(this);
         this.setLogin = this.setLogin.bind(this);
@@ -20,14 +22,16 @@ class Homepage extends Component{
     setRegister(){
         this.setState({
             register: !this.state.register,
-            login: false
+            login: false,
+            logout: false
         })
     }
 
     setLogin(){
         this.setState({
             login : !this.state.login,
-            register : false
+            register : false,
+            logout : false
         })
     }
 
@@ -35,7 +39,8 @@ class Homepage extends Component{
         this.setState({
             register: false,
             login: false,
-            loggedIn : !this.state.loggedIn
+            loggedIn : !this.state.loggedIn,
+            logout : true
         })
     }
 
@@ -53,6 +58,7 @@ class Homepage extends Component{
                 <button disabled = {!this.state.loggedIn} onClick = {this.setLogout} className = "logout" > Logout </button>
                 {this.state.register ? <Register/> : null}
                 {this.state.login ? <Login checkLogin = {this.checkLogin}/> : null}
+                {this.state.logout ? <Logout /> : null}
             </div>
         )
     }

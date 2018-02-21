@@ -11,6 +11,7 @@ const userRegisterRouter = require('./user/register');
 const config = require('./passport/config')
 const userLoginRouter = require('./user/login')
 const notesRouter = require('./notes/crud')
+const userLogoutRouter = require('./user/logout')
 
 
 // Connect to database
@@ -48,6 +49,7 @@ app.use(passport.initialize());
 // User routes
 app.use('/user',userRegisterRouter);
 app.use('/user',userLoginRouter);
+app.use('/user',userLogoutRouter);
 
 
 // Note route
