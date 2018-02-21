@@ -68,12 +68,12 @@ class Note extends Component{
                 <div>
                 {
                     this.state.notes.map((element, index) => {
-                        return (<div>
-                                    <div onClick = {this.updateClickedNote.bind(this, element.title, element.body)} className = "list-note" key = {index}>
+                        return (<div  key = {index} >
+                                    <div onClick = {this.updateClickedNote.bind(this, element.title, element.body)} className = "list-note">
                                         <h1> Title : {element.title} </h1> 
                                         <h2> Body : {element.body} </h2>
                                     </div> 
-                                    <button type = "button" key = {index} onClick = {this.deleteNote.bind(this, element.title)}> Delete </button>
+                                    <button type = "button" onClick = {this.deleteNote.bind(this, element.title)}> Delete </button>
                                 </div>)
                     })
                 }

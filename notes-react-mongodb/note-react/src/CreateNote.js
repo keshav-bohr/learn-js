@@ -52,7 +52,7 @@ class CreateNote extends Component{
         return(
             <div className = "create-note"><br/>
                 <form>
-                    <input type = "text" placeholder = "Title" value = {this.state.title} onChange = {this.setTitle}/><br/><br/>
+                    <input type = "text" placeholder = "Title" autoFocus = "autofocus" value = {this.state.title} onChange = {this.setTitle}/><br/><br/>
                     <input type = "text" placeholder = "Body" value = {this.state.body} onChange = {this.setBody}/><br/><br/>
                     <button type = "button" onClick = {this.createNote}> Create A Note </button>
                 </form>

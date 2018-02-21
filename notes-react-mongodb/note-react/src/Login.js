@@ -54,7 +54,7 @@ class Login extends Component {
             <div>
                 <div style = {{display : (showing ? 'block' : 'none')}} className = "login" >
                 <form>
-                    <input type="text" placeholder = "Username" onChange={this.setUsername} /> <br/><br/>
+                    <input type="text" placeholder = "Username" autoFocus = "autofocus" onChange={this.setUsername} /> <br/><br/>
                     <input type="password" placeholder = "Password" onChange={this.setPassword} /> <br/><br/>
                     <button type="button" disabled = {this.state.loggedIn} onClick={this.loginUser}> Login </button>
                 </form>

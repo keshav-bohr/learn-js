@@ -30,7 +30,6 @@ app.use(cookieParser())
 
 // parse json and urlencoded data
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }))
 
 
 

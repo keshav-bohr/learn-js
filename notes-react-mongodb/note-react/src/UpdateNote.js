@@ -40,8 +40,8 @@ class UpdateNote extends Component{
         return (
             <div className = "update-note">
                 <form>
-                    <label >{this.props.title} </label>
-                    <input type = "text" value = {this.state.updatedBody} onChange = {this.setUpdatedBody} />
+                    <h1 >{this.props.title} </h1>
+                    <input type = "text" value = {this.state.updatedBody} autoFocus = "autofocus" onChange = {this.setUpdatedBody} />
                     <button type = "button" onClick = {this.updateNoteInDb}> Update Note </button>
                 </form>
             </div>
