@@ -52,7 +52,7 @@ class Register extends Component{
         return(
             <div className = "register">
                 <form>
-                    <input type = "text" placeholder = "Username" autofocus = "autofocus" onChange = {this.setUsername} /> <br/><br/>
+                    <input type = "text" placeholder = "Username" autoFocus = "autofocus" onChange = {this.setUsername} /> <br/><br/>
                     <input type = "password" placeholder = "Password" onChange = {this.setPassword} /> <br/><br/>
                     <button type = "button" onClick = {this.sendUser}> Register </button>
                 </form> 
