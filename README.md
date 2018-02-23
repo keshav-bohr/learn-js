@@ -1,4 +1,4 @@
-# learn-js
+# NODEJS Training
 
 ## Authenticate
 first node js app copied at the time of 3-days basic training
